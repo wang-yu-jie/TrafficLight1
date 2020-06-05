@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         setContentView(R.layout.activity_main);
+
+        EditText myEdit = (EditText) findViewById(R.id.gre);
+        if ("".equals(myEdit.getText().toString().trim())) {
+            Toast.makeText(this, "燈號的秒數不能為空白", Toast.LENGTH_LONG).show();
+            return;
+        }
     }
 
     public void StartGame(View v){
